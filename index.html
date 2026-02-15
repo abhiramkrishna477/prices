@@ -321,6 +321,68 @@
                 padding: 2rem;
             }
         }
+
+        /* --- Special Button (View More Details) --- */
+        .btn-special {
+            position: relative;
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .btn-special::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #22c55e);
+            z-index: -1;
+            transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        .btn-special:hover {
+            border-color: transparent;
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-special:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Continuous Glow Animation */
+        @keyframes glowing-border {
+            0% {
+                box-shadow: 0 0 5px #10b981, 0 0 10px #10b981, 0 0 15px #10b981;
+            }
+
+            50% {
+                box-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e, 0 0 30px #22c55e;
+            }
+
+            100% {
+                box-shadow: 0 0 5px #10b981, 0 0 10px #10b981, 0 0 15px #10b981;
+            }
+        }
+
+        .btn-special {
+            animation: glowing-border 2s infinite alternate;
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            color: #4ade80;
+            /* Slight green tint to text for better visibility */
+        }
+
+        .btn-special:hover {
+            color: white;
+        }
     </style>
 </head>
 
@@ -589,15 +651,30 @@
         <div class="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-start reveal">
             <div class="sticky top-24">
                 <span class="section-label">SECTION 03</span>
-                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6">Authenticity<br>Builder</h2>
-                <p class="text-gray-400 leading-relaxed mb-10 max-w-md text-lg">
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4">Authenticity<br>Builder</h2>
+
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-white/10 border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-md">
+                        <span class="text-xs font-bold uppercase tracking-widest text-[#22c55e]"><i
+                                class="fa-solid fa-check-circle mr-1"></i> Authority Focused</span>
+                    </div>
+                    <div class="text-2xl font-black text-white">Under ₹1 Lakh</div>
+                </div>
+
+                <p class="text-gray-400 leading-relaxed mb-6 max-w-md text-lg">
                     Documentary-style storytelling that builds deep trust. We capture the soul of your brand—unscripted,
                     raw, and real.
                 </p>
+
+                <div class="mb-10 flex items-center gap-3">
+                    <span class="w-8 h-[1px] bg-gray-600"></span>
+                    <p class="text-sm font-bold uppercase tracking-widest text-white">Package of 8 to 10 Videos about
+                        your Brand</p>
+                </div>
                 <div class="flex flex-col gap-4 items-start">
                     <a href="https://authoritybuilder.vercel.app/" target="_blank"
-                        class="btn-primary px-8 py-4 text-[10px] font-bold uppercase tracking-widest inline-flex items-center gap-3">
-                        View More Details<i class="fa-solid fa-arrow-right"></i>
+                        class="btn-special px-10 py-5 text-xs font-black uppercase tracking-[0.2em] inline-flex items-center gap-3 rounded-sm">
+                        View More Details<i class="fa-solid fa-arrow-right-long"></i>
                     </a>
                 </div>
             </div>
@@ -642,13 +719,13 @@
 
             <div class="order-1 md:order-2 sticky top-24">
                 <span class="section-label">SECTION 04</span>
-                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6">Cash Pods</h2>
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6">Podcasts</h2>
                 <p class="text-gray-400 leading-relaxed mb-10 max-w-md text-lg">
                     High-impact talking head content designed to convert. Perfect for founders and thought leaders who
                     need to speak directly to their audience.
                 </p>
                 <div class="magnetic-wrap inline-block" data-strength="20">
-                    <button onclick="selectPackage('Cash Pods')"
+                    <button onclick="selectPackage('Podcasts')"
                         class="magnetic-target btn-primary px-8 py-4 text-[10px] font-bold uppercase tracking-widest">
                         Get Custom Quote
                     </button>
@@ -663,13 +740,22 @@
         <div class="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-start reveal">
             <div class="sticky top-24">
                 <span class="section-label">SECTION 05</span>
-                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6">Cinematic Reels</h2>
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4">Big Budget<br>Reels</h2>
+
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="bg-white/10 border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-md">
+                        <span class="text-xs font-bold uppercase tracking-widest text-[#8b5cf6]"><i
+                                class="fa-solid fa-film mr-1"></i> High Production</span>
+                    </div>
+                    <div class="text-2xl font-black text-white">₹1L - 2L</div>
+                </div>
+
                 <p class="text-gray-400 leading-relaxed mb-10 max-w-md text-lg">
                     For when "good enough" isn't enough. High-production value reels involving complex lighting, set
                     design, and advanced color grading.
                 </p>
                 <div class="magnetic-wrap inline-block" data-strength="20">
-                    <button onclick="selectPackage('Cinematic Reels')"
+                    <button onclick="selectPackage('Big Budget Reels')"
                         class="magnetic-target btn-primary px-8 py-4 text-[10px] font-bold uppercase tracking-widest">
                         Get Custom Quote
                     </button>
@@ -738,8 +824,8 @@
                             <option>Ad Package: 2 Videos</option>
                             <option>Ad Package: 3 Videos</option>
                             <option>Authenticity Builder</option>
-                            <option>Cash Pods</option>
-                            <option>Cinematic Reels</option>
+                            <option>Podcasts</option>
+                            <option>Big Budget Reels</option>
                         </select>
                         <div
                             class="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400 text-xs">
